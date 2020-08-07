@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDanaMasjidTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDanaMasjidLabel_danaMasjidPK_idDana}" for="danaMasjidPK_idDana" />
+                    <h:inputText id="danaMasjidPK_idDana" value="#{danaMasjidController.selected.danaMasjidPK.idDana}" title="#{bundle.EditDanaMasjidTitle_danaMasjidPK_idDana}" required="true" requiredMessage="#{bundle.EditDanaMasjidRequiredMessage_danaMasjidPK_idDana}"/>
+                    <h:outputLabel value="#{bundle.EditDanaMasjidLabel_tglDana}" for="tglDana" />
+                    <h:inputText id="tglDana" value="#{danaMasjidController.selected.tglDana}" title="#{bundle.EditDanaMasjidTitle_tglDana}" />
+                    <h:outputLabel value="#{bundle.EditDanaMasjidLabel_sumberDana}" for="sumberDana" />
+                    <h:inputText id="sumberDana" value="#{danaMasjidController.selected.sumberDana}" title="#{bundle.EditDanaMasjidTitle_sumberDana}" />
+                    <h:outputLabel value="#{bundle.EditDanaMasjidLabel_jmlDana}" for="jmlDana" />
+                    <h:inputText id="jmlDana" value="#{danaMasjidController.selected.jmlDana}" title="#{bundle.EditDanaMasjidTitle_jmlDana}" />
+                    <h:outputLabel value="#{bundle.EditDanaMasjidLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{danaMasjidController.selected.status}" title="#{bundle.EditDanaMasjidTitle_status}" />
+                    <h:outputLabel value="#{bundle.EditDanaMasjidLabel_anggotaDKM}" for="anggotaDKM" />
+                    <h:selectOneMenu id="anggotaDKM" value="#{danaMasjidController.selected.anggotaDKM}" title="#{bundle.EditDanaMasjidTitle_anggotaDKM}" required="true" requiredMessage="#{bundle.EditDanaMasjidRequiredMessage_anggotaDKM}">
+                        <f:selectItems value="#{anggotaDKMController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{danaMasjidController.update}" value="#{bundle.EditDanaMasjidSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDanaMasjidViewLink}"/>
+                <br />
+                <h:commandLink action="#{danaMasjidController.prepareList}" value="#{bundle.EditDanaMasjidShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDanaMasjidIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

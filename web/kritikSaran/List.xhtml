@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListKritikSaranTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListKritikSaranEmpty}" rendered="#{kritikSaranController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{kritikSaranController.items.rowCount > 0}">
+                    <h:outputText value="#{kritikSaranController.pagination.pageFirstItem + 1}..#{kritikSaranController.pagination.pageLastItem + 1}/#{kritikSaranController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{kritikSaranController.previous}" value="#{bundle.Previous} #{kritikSaranController.pagination.pageSize}" rendered="#{kritikSaranController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{kritikSaranController.next}" value="#{bundle.Next} #{kritikSaranController.pagination.pageSize}" rendered="#{kritikSaranController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{kritikSaranController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListKritikSaranTitle_idKritikSaran}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idKritikSaran}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListKritikSaranTitle_tglKritikSaran}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tglKritikSaran}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListKritikSaranTitle_kategoriKritikSaran}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.kategoriKritikSaran}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListKritikSaranTitle_isiKritikSaran}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.isiKritikSaran}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{kritikSaranController.prepareView}" value="#{bundle.ListKritikSaranViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{kritikSaranController.prepareEdit}" value="#{bundle.ListKritikSaranEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{kritikSaranController.destroy}" value="#{bundle.ListKritikSaranDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{kritikSaranController.prepareCreate}" value="#{bundle.ListKritikSaranCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListKritikSaranIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

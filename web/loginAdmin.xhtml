@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <link rel="icon" href="resources/images/favicon.ico"/>
+
+        <title>ADM Manager - Log in </title>
+        
+        <!-- Bootstrap 4.0-->
+	<link rel="stylesheet" href="resources/assets/vendor_components/bootstrap/dist/css/bootstrap.min.css"/>
+	
+	<!-- Bootstrap extend-->
+	<link rel="stylesheet" href="resources/css/bootstrap-extend.css"/>
+	
+	<!-- Theme style -->
+	<link rel="stylesheet" href="resources/css/master_style.css"/>
+
+	<!-- Superieur Admin skins -->
+	<link rel="stylesheet" href="resources/css/skins/_all-skins.css"/>
+    </h:head>
+    <h:body class="hold-transition bg-img" style="background-image: url(resources/images/masjid.jpg)">
+        <div class="auth-2-outer row align-items-center h-p100 m-0">
+		<div class="auth-2">
+		  <div class="auth-logo font-size-40">
+                      <a href="../index.html" class="text-white"><b>ADM&nbsp;</b>Manager</a>
+		  </div>
+		  <!-- /.login-logo -->
+		  <div class="auth-body">
+                      <h:form class="form-element">
+                          <h:panelGroup id="messagePanel" layout="block">
+                              <h:messages errorStyle="color: red" infoStyle="color: red" layout="table"/>
+                          </h:panelGroup>
+                          <div class="form-text">
+                                  <p>Email</p>
+                              </div>
+                          <div class="form-group has-feedback">
+                              <h:inputText id="email" class="form-control" 
+                                           value="#{anggotaDKMController.email}" 
+                                           required="true" requiredMessage="Email harus diisi" 
+                                           validatorMessage="Format email salah">
+                                  <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+                              </h:inputText>
+                              <span class="ion ion-email form-control-feedback"></span>
+                              <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="email"/>
+			  </div>
+                          <div class="form-text">
+                                  <p>Password</p>
+                              </div>
+			  <div class="form-group has-feedback">
+                              <h:inputSecret id="pass" class="form-control" 
+                                             value="#{anggotaDKMController.password}" 
+                                             title="Password" 
+                                             required="true" requiredMessage="Password harus diisi"/>
+                              <span class="ion ion-locked form-control-feedback"></span>
+                              <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="pass"/>
+			  </div>
+			  <div class="row">
+				<!-- /.col -->
+				<div class="col-12 text-center">
+                                    <h:commandButton id="login" action="#{anggotaDKMController.login}" value="Login" class="btn btn-block mt-10 btn-success" />
+                                    <h:messages errorStyle="color: red" infoStyle="color: red" layout="table" for="login"/>
+				</div>
+				<!-- /.col -->
+			  </div>
+                      </h:form>
+
+			<div class="margin-top-30 text-center">
+				<p>Tidak punya akun? <a href="#" class="text-info m-l-5">Daftar</a></p>
+			</div>
+
+		  </div>
+		</div>
+	</div>
+        
+        <!-- jQuery 3 -->
+	<script src="resources/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
+	
+	<!-- popper -->
+	<script src="resources/assets/vendor_components/popper/dist/popper.min.js"></script>
+	
+	<!-- Bootstrap 4.0-->
+	<script src="resources/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    </h:body>
+</html>
+

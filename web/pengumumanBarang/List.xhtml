@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPengumumanBarangTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPengumumanBarangEmpty}" rendered="#{pengumumanBarangController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{pengumumanBarangController.items.rowCount > 0}">
+                    <h:outputText value="#{pengumumanBarangController.pagination.pageFirstItem + 1}..#{pengumumanBarangController.pagination.pageLastItem + 1}/#{pengumumanBarangController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{pengumumanBarangController.previous}" value="#{bundle.Previous} #{pengumumanBarangController.pagination.pageSize}" rendered="#{pengumumanBarangController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{pengumumanBarangController.next}" value="#{bundle.Next} #{pengumumanBarangController.pagination.pageSize}" rendered="#{pengumumanBarangController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{pengumumanBarangController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_pengumumanBarangPK_idBarang}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pengumumanBarangPK.idBarang}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_tglLapor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tglLapor}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_namaBarang}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.namaBarang}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_deskripsiBarang}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deskripsiBarang}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_nikPenemu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nikPenemu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_namaPenemu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.namaPenemu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_tlpPenemu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tlpPenemu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_fotoPenemu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fotoPenemu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_nikPemilik}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nikPemilik}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_namaPemilik}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.namaPemilik}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_tlpPemilik}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tlpPemilik}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_fotoPemilik}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fotoPemilik}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_status}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.status}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPengumumanBarangTitle_anggotaDKM}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.anggotaDKM}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{pengumumanBarangController.prepareView}" value="#{bundle.ListPengumumanBarangViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pengumumanBarangController.prepareEdit}" value="#{bundle.ListPengumumanBarangEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{pengumumanBarangController.destroy}" value="#{bundle.ListPengumumanBarangDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{pengumumanBarangController.prepareCreate}" value="#{bundle.ListPengumumanBarangCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPengumumanBarangIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

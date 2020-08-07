@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewKritikSaranTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewKritikSaranLabel_idKritikSaran}"/>
+                    <h:outputText value="#{kritikSaranController.selected.idKritikSaran}" title="#{bundle.ViewKritikSaranTitle_idKritikSaran}"/>
+                    <h:outputText value="#{bundle.ViewKritikSaranLabel_tglKritikSaran}"/>
+                    <h:outputText value="#{kritikSaranController.selected.tglKritikSaran}" title="#{bundle.ViewKritikSaranTitle_tglKritikSaran}"/>
+                    <h:outputText value="#{bundle.ViewKritikSaranLabel_kategoriKritikSaran}"/>
+                    <h:outputText value="#{kritikSaranController.selected.kategoriKritikSaran}" title="#{bundle.ViewKritikSaranTitle_kategoriKritikSaran}"/>
+                    <h:outputText value="#{bundle.ViewKritikSaranLabel_isiKritikSaran}"/>
+                    <h:outputText value="#{kritikSaranController.selected.isiKritikSaran}" title="#{bundle.ViewKritikSaranTitle_isiKritikSaran}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{kritikSaranController.destroyAndView}" value="#{bundle.ViewKritikSaranDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewKritikSaranEditLink}"/>
+                <br />
+                <h:commandLink action="#{kritikSaranController.prepareCreate}" value="#{bundle.ViewKritikSaranCreateLink}" />
+                <br />
+                <h:commandLink action="#{kritikSaranController.prepareList}" value="#{bundle.ViewKritikSaranShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewKritikSaranIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

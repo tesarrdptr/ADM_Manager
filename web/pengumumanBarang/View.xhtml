@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPengumumanBarangTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_pengumumanBarangPK_idBarang}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.pengumumanBarangPK.idBarang}" title="#{bundle.ViewPengumumanBarangTitle_pengumumanBarangPK_idBarang}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_tglLapor}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.tglLapor}" title="#{bundle.ViewPengumumanBarangTitle_tglLapor}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_namaBarang}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.namaBarang}" title="#{bundle.ViewPengumumanBarangTitle_namaBarang}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_deskripsiBarang}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.deskripsiBarang}" title="#{bundle.ViewPengumumanBarangTitle_deskripsiBarang}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_nikPenemu}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.nikPenemu}" title="#{bundle.ViewPengumumanBarangTitle_nikPenemu}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_namaPenemu}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.namaPenemu}" title="#{bundle.ViewPengumumanBarangTitle_namaPenemu}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_tlpPenemu}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.tlpPenemu}" title="#{bundle.ViewPengumumanBarangTitle_tlpPenemu}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_fotoPenemu}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.fotoPenemu}" title="#{bundle.ViewPengumumanBarangTitle_fotoPenemu}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_nikPemilik}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.nikPemilik}" title="#{bundle.ViewPengumumanBarangTitle_nikPemilik}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_namaPemilik}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.namaPemilik}" title="#{bundle.ViewPengumumanBarangTitle_namaPemilik}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_tlpPemilik}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.tlpPemilik}" title="#{bundle.ViewPengumumanBarangTitle_tlpPemilik}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_fotoPemilik}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.fotoPemilik}" title="#{bundle.ViewPengumumanBarangTitle_fotoPemilik}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_status}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.status}" title="#{bundle.ViewPengumumanBarangTitle_status}"/>
+                    <h:outputText value="#{bundle.ViewPengumumanBarangLabel_anggotaDKM}"/>
+                    <h:outputText value="#{pengumumanBarangController.selected.anggotaDKM}" title="#{bundle.ViewPengumumanBarangTitle_anggotaDKM}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pengumumanBarangController.destroyAndView}" value="#{bundle.ViewPengumumanBarangDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPengumumanBarangEditLink}"/>
+                <br />
+                <h:commandLink action="#{pengumumanBarangController.prepareCreate}" value="#{bundle.ViewPengumumanBarangCreateLink}" />
+                <br />
+                <h:commandLink action="#{pengumumanBarangController.prepareList}" value="#{bundle.ViewPengumumanBarangShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPengumumanBarangIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

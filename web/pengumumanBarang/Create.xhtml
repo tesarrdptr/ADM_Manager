@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePengumumanBarangTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_pengumumanBarangPK_idBarang}" for="pengumumanBarangPK_idBarang" />
+                    <h:inputText id="pengumumanBarangPK_idBarang" value="#{pengumumanBarangController.selected.pengumumanBarangPK.idBarang}" title="#{bundle.CreatePengumumanBarangTitle_pengumumanBarangPK_idBarang}" required="true" requiredMessage="#{bundle.CreatePengumumanBarangRequiredMessage_pengumumanBarangPK_idBarang}"/>
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_tglLapor}" for="tglLapor" />
+                    <h:inputText id="tglLapor" value="#{pengumumanBarangController.selected.tglLapor}" title="#{bundle.CreatePengumumanBarangTitle_tglLapor}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_namaBarang}" for="namaBarang" />
+                    <h:inputText id="namaBarang" value="#{pengumumanBarangController.selected.namaBarang}" title="#{bundle.CreatePengumumanBarangTitle_namaBarang}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_deskripsiBarang}" for="deskripsiBarang" />
+                    <h:inputText id="deskripsiBarang" value="#{pengumumanBarangController.selected.deskripsiBarang}" title="#{bundle.CreatePengumumanBarangTitle_deskripsiBarang}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_nikPenemu}" for="nikPenemu" />
+                    <h:inputText id="nikPenemu" value="#{pengumumanBarangController.selected.nikPenemu}" title="#{bundle.CreatePengumumanBarangTitle_nikPenemu}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_namaPenemu}" for="namaPenemu" />
+                    <h:inputText id="namaPenemu" value="#{pengumumanBarangController.selected.namaPenemu}" title="#{bundle.CreatePengumumanBarangTitle_namaPenemu}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_tlpPenemu}" for="tlpPenemu" />
+                    <h:inputText id="tlpPenemu" value="#{pengumumanBarangController.selected.tlpPenemu}" title="#{bundle.CreatePengumumanBarangTitle_tlpPenemu}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_fotoPenemu}" for="fotoPenemu" />
+                    <h:inputText id="fotoPenemu" value="#{pengumumanBarangController.selected.fotoPenemu}" title="#{bundle.CreatePengumumanBarangTitle_fotoPenemu}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_nikPemilik}" for="nikPemilik" />
+                    <h:inputText id="nikPemilik" value="#{pengumumanBarangController.selected.nikPemilik}" title="#{bundle.CreatePengumumanBarangTitle_nikPemilik}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_namaPemilik}" for="namaPemilik" />
+                    <h:inputText id="namaPemilik" value="#{pengumumanBarangController.selected.namaPemilik}" title="#{bundle.CreatePengumumanBarangTitle_namaPemilik}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_tlpPemilik}" for="tlpPemilik" />
+                    <h:inputText id="tlpPemilik" value="#{pengumumanBarangController.selected.tlpPemilik}" title="#{bundle.CreatePengumumanBarangTitle_tlpPemilik}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_fotoPemilik}" for="fotoPemilik" />
+                    <h:inputText id="fotoPemilik" value="#{pengumumanBarangController.selected.fotoPemilik}" title="#{bundle.CreatePengumumanBarangTitle_fotoPemilik}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{pengumumanBarangController.selected.status}" title="#{bundle.CreatePengumumanBarangTitle_status}" />
+                    <h:outputLabel value="#{bundle.CreatePengumumanBarangLabel_anggotaDKM}" for="anggotaDKM" />
+                    <h:selectOneMenu id="anggotaDKM" value="#{pengumumanBarangController.selected.anggotaDKM}" title="#{bundle.CreatePengumumanBarangTitle_anggotaDKM}" required="true" requiredMessage="#{bundle.CreatePengumumanBarangRequiredMessage_anggotaDKM}">
+                        <f:selectItems value="#{anggotaDKMController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pengumumanBarangController.create}" value="#{bundle.CreatePengumumanBarangSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pengumumanBarangController.prepareList}" value="#{bundle.CreatePengumumanBarangShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePengumumanBarangIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

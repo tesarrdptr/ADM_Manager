@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePeminjamanBukuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePeminjamanBukuLabel_idPinjam}" for="idPinjam" />
+                    <h:inputText id="idPinjam" value="#{peminjamanBukuController.selected.idPinjam}" title="#{bundle.CreatePeminjamanBukuTitle_idPinjam}" required="true" requiredMessage="#{bundle.CreatePeminjamanBukuRequiredMessage_idPinjam}"/>
+                    <h:outputLabel value="#{bundle.CreatePeminjamanBukuLabel_tglPinjam}" for="tglPinjam" />
+                    <h:inputText id="tglPinjam" value="#{peminjamanBukuController.selected.tglPinjam}" title="#{bundle.CreatePeminjamanBukuTitle_tglPinjam}" />
+                    <h:outputLabel value="#{bundle.CreatePeminjamanBukuLabel_tglKembali}" for="tglKembali" />
+                    <h:inputText id="tglKembali" value="#{peminjamanBukuController.selected.tglKembali}" title="#{bundle.CreatePeminjamanBukuTitle_tglKembali}" />
+                    <h:outputLabel value="#{bundle.CreatePeminjamanBukuLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{peminjamanBukuController.selected.status}" title="#{bundle.CreatePeminjamanBukuTitle_status}" />
+                    <h:outputLabel value="#{bundle.CreatePeminjamanBukuLabel_idDenda}" for="idDenda" />
+                    <h:inputText id="idDenda" value="#{peminjamanBukuController.selected.idDenda}" title="#{bundle.CreatePeminjamanBukuTitle_idDenda}" />
+                    <h:outputLabel value="#{bundle.CreatePeminjamanBukuLabel_idMember}" for="idMember" />
+                    <h:selectOneMenu id="idMember" value="#{peminjamanBukuController.selected.idMember}" title="#{bundle.CreatePeminjamanBukuTitle_idMember}" required="true" requiredMessage="#{bundle.CreatePeminjamanBukuRequiredMessage_idMember}">
+                        <f:selectItems value="#{member1Controller.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{peminjamanBukuController.create}" value="#{bundle.CreatePeminjamanBukuSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{peminjamanBukuController.prepareList}" value="#{bundle.CreatePeminjamanBukuShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePeminjamanBukuIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
