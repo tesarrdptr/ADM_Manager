@@ -64,7 +64,7 @@
                             <!-- Menu Body -->
                             <li class="user-body">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-person"></i> My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="../faces/loginAdmin.xhtml"><i class="ion-log-out"></i> Logout</a>
                             </li>
                           </ul>
                         </li>		
@@ -381,7 +381,7 @@
                         </a>
                                 <ul class="treeview-menu">
                           <li><a href="javascript:void()"><i class="fa fa-user mr-5"></i>My Profile </a></li>
-                                      <li><a href="javascript:void()"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
+                                      <li><a href="../faces/loginAdmin.xhtml"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
                         </ul>
                       </li>
                       <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>PERSONAL</li>
@@ -485,13 +485,10 @@
                                                         <h:commandLink class="btn btn-rounded btn-outline btn-primary" action="#{anggotaDKMController.previous}" value="#{bundle.Previous} #{anggotaDKMController.pagination.pageSize}" rendered="#{anggotaDKMController.pagination.hasPreviousPage}"/>&nbsp;
                                                         <h:commandLink class="btn btn-rounded btn-outline btn-primary" action="#{anggotaDKMController.next}" value="#{bundle.Next} #{anggotaDKMController.pagination.pageSize}" rendered="#{anggotaDKMController.pagination.hasNextPage}"/>&nbsp;
                
-                                                        <h:dataTable a:id="example1" class="table table-bordered table-striped" value="#{anggotaDKMController.items}" var="item" cellpadding="2" cellspacing="0" rowClasses="table table-hover table-bordered" rules="all" style="width:100%">
-<!--                                                            <h:column>
-                                                                <f:facet name="header">
-                                                                    <h:outputText value="ID Anggota"/>
-                                                                </f:facet>
-                                                                <h:outputText value="#{item.idAnggota}"/>
-                                                            </h:column>-->
+                                                        <h:dataTable 
+                                                            a:id="example1"
+                                                                     class="table table-bordered table-striped" value="#{anggotaDKMController.items}" 
+                                                                     var="item" cellpadding="2" cellspacing="0" rowClasses="table table-hover table-bordered" rules="all" style="width:100%">
                                                             <h:column>
                                                                 <f:facet name="header">
                                                                     <h:outputText value="Nama Anggota"/>

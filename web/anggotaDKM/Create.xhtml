@@ -66,7 +66,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-settings"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="../faces/loginAdmin.xhtml"><i class="ion-log-out"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
                                 <div class="p-10"><a href="javascript:void(0)" class="btn btn-sm btn-rounded btn-success">View Profile</a></div>
                             </li>
@@ -388,7 +388,7 @@
                                       <li><a href="javascript:void()"><i class="fa fa-money mr-5"></i>My Balance</a></li>
                                       <li><a href="javascript:void()"><i class="fa fa-envelope-open mr-5"></i>Inbox</a></li>
                                       <li><a href="javascript:void()"><i class="fa fa-cog mr-5"></i>Account Setting</a></li>
-                                      <li><a href="javascript:void()"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
+                                      <li><a href="../faces/loginAdmin.xhtml"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
                         </ul>
                       </li>
                       <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>PERSONAL</li>
@@ -507,7 +507,7 @@
                                                     <div class="form-group">
                                                         <h5><h:outputLabel value="Nomor Telepon" for="tlpAnggota" /> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <h:inputText id="tlpAnggota" class="form-control" value="#{anggotaDKMController.selected.tlpAnggota}" title="#{bundle.CreateAnggotaDKMTitle_tlpAnggota}" 
+                                                            <h:inputText id="tlpAnggota" maxlength="15" class="form-control" value="#{anggotaDKMController.selected.tlpAnggota}" title="#{bundle.CreateAnggotaDKMTitle_tlpAnggota}" 
                                                                          required="true" requiredMessage="Data Harus Terisi" validatorMessage="Inputan harus angka">
                                                                 <f:validateRegex pattern="^[0-9]{1,13}$"/>
                                                             </h:inputText>

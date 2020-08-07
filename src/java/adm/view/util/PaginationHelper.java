@@ -8,14 +8,14 @@ import javax.faces.model.DataModel;
  */
 public abstract class PaginationHelper {
 
-    private int pageSize;
+    private int pageSize = 1000;
     private int page;
 
     /**
      *
      * @param pageSize
      */
-    public PaginationHelper(int pageSize) {
+    public PaginationHelper() {
         this.pageSize = pageSize;
     }
 

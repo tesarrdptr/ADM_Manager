@@ -61,7 +61,7 @@ public class KritikSaranController implements Serializable {
      */
     public PaginationHelper getPagination() {
         if (pagination == null) {
-            pagination = new PaginationHelper(10) {
+            pagination = new PaginationHelper() {
 
                 @Override
                 public int getItemsCount() {

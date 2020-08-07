@@ -480,7 +480,8 @@
                                                                 <f:facet name="header">
                                                                     <h:outputText value="Sumber Dana"/>
                                                                 </f:facet>
-                                                                <h:outputText value="#{item.sumberDana}"/>
+                                                                <!--<h:outputText value="#{item.sumberDana}"/>-->
+                                                                <h:commandLink value="#{item.sumberDana}" action="#{danaMasjidController.prepareView}" title="Edit"/>
                                                             </h:column>
                                                             <h:column>
                                                                 <f:facet name="header">
