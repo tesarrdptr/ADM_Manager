@@ -116,6 +116,11 @@ public class AnggotaDKMController implements Serializable {
             return "/loginAdmin.xhtml";
         }
     }
+    
+    public String logout() {
+        ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).invalidate();
+         return "./loginAdmin.xhtml";
+    }
 
     /**
      *
