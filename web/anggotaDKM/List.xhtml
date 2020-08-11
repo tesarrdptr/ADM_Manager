@@ -64,7 +64,7 @@
                             <!-- Menu Body -->
                             <li class="user-body">
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ion ion-person"></i> My Profile</a>
-                                <a class="dropdown-item" href="../faces/loginAdmin.xhtml"><i class="ion-log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ion-log-out"></i> Logout</a>
                             </li>
                           </ul>
                         </li>		
@@ -381,11 +381,7 @@
                         </a>
                                 <ul class="treeview-menu">
                           <li><a href="javascript:void()"><i class="fa fa-user mr-5"></i>My Profile </a></li>
-<!--                                      <li><a href="../faces/loginAdmin.xhtml"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
-                                      <h:form class="fa fa-power-off mr-5">
-                                          <h:commandLink value="Logout" action="#{anggotaDKMController.logout}"/>
-                                      </h:form>-->
-
+                                      <li><a href="javascript:void()"><i class="fa fa-power-off mr-5"></i>Logout</a></li>
                         </ul>
                       </li>
                       <li class="header nav-small-cap"><i class="mdi mdi-drag-horizontal mr-5"></i>PERSONAL</li>
@@ -489,10 +485,13 @@
                                                         <h:commandLink class="btn btn-rounded btn-outline btn-primary" action="#{anggotaDKMController.previous}" value="#{bundle.Previous} #{anggotaDKMController.pagination.pageSize}" rendered="#{anggotaDKMController.pagination.hasPreviousPage}"/>&nbsp;
                                                         <h:commandLink class="btn btn-rounded btn-outline btn-primary" action="#{anggotaDKMController.next}" value="#{bundle.Next} #{anggotaDKMController.pagination.pageSize}" rendered="#{anggotaDKMController.pagination.hasNextPage}"/>&nbsp;
                
-                                                        <h:dataTable 
-                                                            a:id="example1"
-                                                                     class="table table-bordered table-striped" value="#{anggotaDKMController.items}" 
-                                                                     var="item" cellpadding="2" cellspacing="0" rowClasses="table table-hover table-bordered" rules="all" style="width:100%">
+                                                        <h:dataTable a:id="example1" class="table table-bordered table-striped" value="#{anggotaDKMController.items}" var="item" cellpadding="2" cellspacing="0" rowClasses="table table-hover table-bordered" rules="all" style="width:100%">
+<!--                                                            <h:column>
+                                                                <f:facet name="header">
+                                                                    <h:outputText value="ID Anggota"/>
+                                                                </f:facet>
+                                                                <h:outputText value="#{item.idAnggota}"/>
+                                                            </h:column>-->
                                                             <h:column>
                                                                 <f:facet name="header">
                                                                     <h:outputText value="Nama Anggota"/>
@@ -770,171 +769,10 @@
             </ui:define>
 
             <ui:define name="content">
-                
                 content
                 <!-- jQuery 3 -->
-              <script type="text/javascript" src="../resources/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
-
-<!--               popper 
-              <script type="text/javascript" src="../resources/assets/vendor_components/popper/dist/popper.min.js"></script>
-              
-               date-range-picker 
-            <script type="text/javascript" src="../resources/assets/vendor_components/moment/min/moment.min.js"></script>
-            <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-            
-             ChartJS 
-            <script type="text/javascript" src="../resources/assets/vendor_components/chart.js-master/Chart.min.js"></script>
-
-               Bootstrap 4.0
-              <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-               SlimScroll 
-              <script type="text/javascript" src="../resources/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-
-               FastClick 
-              <script type="text/javascript" src="../resources/assets/vendor_components/fastclick/lib/fastclick.js"></script>
-              
-               Morris.js charts 
-            <script type="text/javascript" src="../resources/assets/vendor_components/raphael/raphael.min.js"></script>
-            <script type="text/javascript" src="../resources/assets/vendor_components/morris.js/morris.min.js"></script>
-
-             This is data table 
-            <script type="text/javascript" src="../resources/assets/vendor_components/datatable/datatables.min.js"></script>
-            <script type="text/javascript" src="../resources/js/pages/data-table.js"></script>
-
-               Superieur Admin App 
-              <script type="text/javascript" src="../resources/js/template.js"></script>
-
-               Superieur Admin for demo purposes 
-              <script type="text/javascript" src="../resources/js/demo.js"></script>
-
-               Form validator JavaScript 
-              <script type="text/javascript" src="../resources/js/pages/validation.js"></script>
-              <script type="text/javascript" src="../resources/js/pages/form-validation.js"></script>-->
-              
-              
+              <script type="text/javascript" src="../resources/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>         
             </ui:define>
-
         </ui:composition>
-        
-        
-        <!--
-        <ui:define name="Page-title">
-            <h:outputText value="Anggota DKM"></h:outputText>
-        </ui:define>
-        
-        <ui:define name="form-header">
-            <h:outputText value="List Anggota DKM"></h:outputText>
-        </ui:define>
-        
-        <ui:define name="action-form">
-            <h:form styleClass="jsfcrud_list_form">
-                <div class="row">
-                    <div class="col-12">
-                        <h:commandLink class="btn btn-info" action="#{anggotaDKMController.prepareCreate}" value="Input anggota baru"/>
-                    </div>
-                </div>
-                
-                <div class="table-responsive">
-                    <table id="example5" class="table table-bordered table-striped" style="width:100%">
-                        <h:dataTable class="table table-bordered table-striped" value="#{anggotaDKMController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <thead>
-                            <tr>
-                                <th><h:outputText value="#{bundle.ListAnggotaDKMTitle_idAnggota}"/></th>
-                                <th><h:outputText value="#{bundle.ListAnggotaDKMTitle_namaAnggota}"/></th>
-                                <th><h:outputText value="#{bundle.ListAnggotaDKMTitle_emailAnggota}"/></th>
-                                <th><h:outputText value="#{bundle.ListAnggotaDKMTitle_tlpAnggota}"/></th>
-                                <th><h:outputText value="#{bundle.ListAnggotaDKMTitle_roleAnggota}"/></th>
-                                <th><h:outputText value="#{bundle.ListAnggotaDKMTitle_status}"/></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <td><h:outputText value="#{item.idAnggota}"/></td>
-                            <td><h:outputText value="#{item.namaAnggota}"/></td>
-                            <td><h:outputText value="#{item.emailAnggota}"/></td>
-                            <td><h:outputText value="#{item.tlpAnggota}"/></td>
-                            <td><h:outputText value="#{item.roleAnggota}"/></td>
-                            <td><h:outputText value="#{item.status}"/></td>
-                        </tbody>
-                        </h:dataTable>
-                    </table>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12">
-                        <h:panelGroup id="messagePanel" layout="block">
-                            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                        </h:panelGroup>
-                        <h:outputText escape="false" value="#{bundle.ListAnggotaDKMEmpty}" rendered="#{anggotaDKMController.items.rowCount == 0}"/>
-                        <h:panelGroup rendered="#{anggotaDKMController.items.rowCount > 0}">
-                            <h:outputText value="#{anggotaDKMController.pagination.pageFirstItem + 1}..#{anggotaDKMController.pagination.pageLastItem + 1}/#{anggotaDKMController.pagination.itemsCount}"/>&nbsp;
-                            <h:commandLink action="#{anggotaDKMController.previous}" value="#{bundle.Previous} #{anggotaDKMController.pagination.pageSize}" rendered="#{anggotaDKMController.pagination.hasPreviousPage}"/>&nbsp;
-                            <h:commandLink action="#{anggotaDKMController.next}" value="#{bundle.Next} #{anggotaDKMController.pagination.pageSize}" rendered="#{anggotaDKMController.pagination.hasNextPage}"/>&nbsp;
-                            
-                            <h:dataTable class="table table-bordered table-striped" value="#{anggotaDKMController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_idAnggota}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.idAnggota}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_namaAnggota}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.namaAnggota}"/>
-                                        <h:commandLink action="#{anggotaDKMController.prepareView}" value="#{item.namaAnggota}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_emailAnggota}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.emailAnggota}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_passAnggota}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.passAnggota}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_tlpAnggota}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.tlpAnggota}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_roleAnggota}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.roleAnggota}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="#{bundle.ListAnggotaDKMTitle_status}"/>
-                                    </f:facet>
-                                    <h:outputText value="#{item.status}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header">
-                                        <h:outputText value="Aksi"/>
-                                    </f:facet>
-                                    
-                                    <h:commandLink action="#{anggotaDKMController.prepareEdit}" value="#{bundle.ListAnggotaDKMEditLink}"/>
-                                    <h:outputText value=" || "/>
-                                    <h:commandLink action="#{anggotaDKMController.ubahStatus}" value="Ubah Status"/>
-                                </h:column>
-                            </h:dataTable>
-                        </h:panelGroup>
-                    </div>
-                    </div>
-                <br />
-                
-                <br />
-                <br />
-                <h:link class="btn btn-info" outcome="/index" value="Halaman Utama"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>-->
-    </ui:composition>
+   </ui:composition>
 </html>

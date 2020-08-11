@@ -102,6 +102,8 @@ public class AnggotaDKMController implements Serializable {
 
             if (autentikasi == true && role == 1) {
                 return "/index.xhtml";
+            } else if (autentikasi == true && role == 2) {
+                return "/peminjamanBuku/List.xhtml";
             } else if (autentikasi == true && role == 3) {
                 return "/danaMasjid/List.xhtml";
             } else {

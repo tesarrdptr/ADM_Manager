@@ -157,6 +157,7 @@ public class EventController implements Serializable {
             current.getEventPK().setIdAnggota(current.getAnggotaDKM().getIdAnggota());
             getFacade().edit(current);
             JsfUtil.addSuccessMessage("Event berhasil diubah");
+            recreateModel();
             return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     
     <ui:composition template="./../newTemplate.xhtml">
         <ui:define name="top">
@@ -469,6 +470,7 @@
                                                     <div class="form-group">
                                                       <h5><h:outputLabel value="Tanggal" for="tglPemasukan" />(dd/mm/yyyy)<span class="text-danger">*</span></h5>
                                                       <div class="controls"> 
+                                                          <h:inputText id="tglJadwal" a:min="#{calendarView.dateNow}"  a:onchange="checkDate()" a:id="tglJadwal" a:type="date" class="form-control col-3" value="#{danaMasjidController.selected.tglDana}" required="true" requiredMessage="Tanggal jadwal harus diisi"></h:inputText>
                                                           <h:inputText id="tglDana" class="form-control"  value="#{danaMasjidController.selected.tglDana}" title="#{bundle.EditDanaMasjidTitle_tglDana}" />
                                                           <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="tgl"/>
                                                         </div>

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <body>
 
@@ -518,18 +519,20 @@
                                                     <div class="input-group-addon">
                                                       <i class="fa fa-calendar"></i>
                                                     </div>
-                                                    <h:inputText id="tglEvent" class="form-control pull-right datepicker" 
+                                                    <h:inputText style="width: 50px;" id="tglEvent" a:min="#{calendarView.dateNow}"  a:onchange="checkDate()" a:id="tglJadwal" a:type="date" class="form-control col-3" value="#{eventController.selected.tglEvent}" required="true" requiredMessage="Tanggal event harus diisi">
+                                                    </h:inputText>
+<!--                                                    <h:inputText id="tglEvent" class="form-control pull-right datepicker" 
                                                                  value="#{eventController.selected.tglEvent}" 
                                                                  title="Tanggal Event" 
                                                                  required="true" requiredMessage="Tanggal Event harus diisi">
-                                                    </h:inputText>
+                                                    </h:inputText>-->
                                                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="tglEvent"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <h5><h:outputLabel value="Jam Mulai" for="jamMulai" /><span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <h:inputText id="jamMulai" class="form-control" 
+                                                    <h:inputText id="jamMulai" class="form-control col-3" 
                                                                  value="#{eventController.selected.jamMulai}" 
                                                                  title="Jam Mulai" 
                                                                  required="true" requiredMessage="Jam Mulai harus diisi">
@@ -540,7 +543,7 @@
                                             <div class="form-group">
                                                 <h5><h:outputLabel value="Jam Selesai" for="jamSelesai" /><span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <h:inputText id="jamSelesai" class="form-control" 
+                                                    <h:inputText id="jamSelesai" class="form-control col-3" 
                                                                  value="#{eventController.selected.jamSelesai}" 
                                                                  title="Jam Selesai" 
                                                                  required="true" requiredMessage="Jam Selesai harus diisi">
@@ -779,68 +782,29 @@
               <!-- jQuery 3 -->
               <script type="text/javascript" src="../resources/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
 
-              <!-- popper -->
-<!--              <script type="text/javascript" src="../resources/assets/vendor_components/popper/dist/popper.min.js"></script>
-              
-               date-range-picker 
-            <script type="text/javascript" src="../resources/assets/vendor_components/moment/min/moment.min.js"></script>
-            <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-            
-             ChartJS 
-            <script type="text/javascript" src="../resources/assets/vendor_components/chart.js-master/Chart.min.js"></script>
 
-               Bootstrap 4.0
-              <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-               SlimScroll 
-              <script type="text/javascript" src="../resources/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-
-               Bootstrap Select 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
-
-                 Bootstrap tagsinput 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
-
-                 Bootstrap touchspin 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-
-                 Select2 
-                <script type="text/javascript" src="../resources/assets/vendor_components/select2/dist/js/select2.full.js"></script>
-
-                 InputMask 
-                <script type="text/javascript" src="../resources/assets/vendor_plugins/input-mask/jquery.inputmask.js"></script>
-                <script type="text/javascript" src="../resources/assets/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-                <script type="text/javascript" src="../resources/assets/vendor_plugins/input-mask/jquery.inputmask.extensions.js"></script>
-              
-               bootstrap datepicker 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-              
-               FastClick 
-              <script type="text/javascript" src="../resources/assets/vendor_components/fastclick/lib/fastclick.js"></script>
-              
-               Morris.js charts 
-            <script type="text/javascript" src="../resources/assets/vendor_components/raphael/raphael.min.js"></script>
-            <script type="text/javascript" src="../resources/assets/vendor_components/morris.js/morris.min.js"></script>
-
-             This is data table 
-            <script type="text/javascript" src="../resources/assets/vendor_components/datatable/datatables.min.js"></script>
-            <script type="text/javascript" src="../resources/js/pages/data-table.js"></script>
-
-               Superieur Admin App 
-              <script type="text/javascript" src="../resources/js/template.js"></script>
-
-               Superieur Admin for demo purposes 
-              <script type="text/javascript" src="../resources/js/demo.js"></script>
-
-               Form validator JavaScript 
-              <script type="text/javascript" src="../resources/js/pages/validation.js"></script>
-              <script type="text/javascript" src="../resources/js/pages/form-validation.js"></script>
-               Superieur Admin for advanced form element 
-                <script type="text/javascript" src="../resources/js/pages/advanced-form-element.js"></script>-->
             </ui:define>
 
             <ui:define name="content">
                 content
+<!--                <script>
+                    function checkDate(e) {
+                        var dateString = document.getElementById('tglEvent').value;
+                        var today = new Date();
+                        var submit = document.getElementById('masuk');
+                        submit.setAttribute("disabled", "true");
+                        var DateStart = new Date(dateString);
+                        var DateEnd = new Date(today);
+                        if (DateStart < DateEnd) {
+                          alert("Tanggal Lahir tidak boleh lebih dari hari ini");
+                          submit.style.display = "none";
+                          return false;
+
+                        }else{
+                           submit.style.display = "block";
+                        }
+                    };
+                </script>-->
             </ui:define>
 
         </ui:composition>

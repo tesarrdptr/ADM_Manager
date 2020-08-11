@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <ui:composition template="./../newTemplate.xhtml">
         <ui:define name="top">
@@ -461,9 +462,12 @@
                                                     <div class="form-group">
                                                       <h5><h:outputLabel value="Tanggal" for="tglPemasukan" />(dd/mm/yyyy)<span class="text-danger">*</span></h5>
                                                       <div class="controls"> 
-                                                          <h:inputText id="tgl" class="form-control" 
+<!--                                                          <h:inputText id="tgl" class="form-control" 
                                                                        value="#{danaMasjidController.selected.tglDana}" 
                                                                        title="Tanggal Pemasukan" required="true" requiredMessage="Data Harus Terisi" >
+                                                          </h:inputText>-->
+                                                          <h:inputText id="tglJadwal" a:min="#{calendarView.dateNow}"  a:onchange="checkDate()" a:id="tglJadwal" a:type="date" class="form-control col-3" value="#{danaMasjidController.selected.tglDana}" required="true" requiredMessage="Tanggal jadwal harus diisi">
+                                                            <!--<f:convertDateTime pattern="dd/MM/yyyy" />-->
                                                           </h:inputText>
                                                           <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="tgl"/>
                                                         </div>

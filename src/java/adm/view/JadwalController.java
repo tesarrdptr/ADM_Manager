@@ -118,7 +118,8 @@ public class JadwalController implements Serializable {
             current.getJadwalPK().setIdImam(current.getImam().getIdImam());
             current.getJadwalPK().setIdAnggota(current.getAnggotaDKM().getIdAnggota());
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("JadwalCreated"));
+            recreateModel();
+            JsfUtil.addSuccessMessage("Data Anggota berhasil ditambahkan");
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

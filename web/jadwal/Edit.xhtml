@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <body>
 
@@ -482,10 +483,13 @@
                                             <div class="form-group">
                                                 <h5><h:outputLabel value="Tanggal" for="tglJadwal" /><span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <h:inputText class="form-control" id="tglJadwal" 
+<!--                                                    <h:inputText class="form-control" id="tglJadwal" 
                                                                  value="#{jadwalController.selected.tglJadwal}" 
                                                                  title="Tanggal Jadwal" 
                                                                  required="true" requiredMessage="Tanggal harus diisi">
+                                                    </h:inputText>-->
+                                                    <h:inputText id="tglJadwal" a:min="#{calendarView.dateNow}"  a:onchange="checkDate()" 
+                                                                 a:id="tglJadwal" a:type="date" class="form-control" value="#{jadwalController.selected.tglJadwal}" required="true" requiredMessage="Tanggal jadwal harus diisi">
                                                     </h:inputText>
                                                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="tglJadwal"/>
                                                 </div>
@@ -504,7 +508,7 @@
                                             <div class="form-group">
                                                 <h5><h:outputLabel value="Imam" for="imam" /><span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <h:selectOneMenu disabled="true" id="imam" class="form-control" 
+                                                    <h:selectOneMenu disabled="false" id="imam" class="form-control" 
                                                                      value="#{jadwalController.selected.imam}" 
                                                                      title="Imam" 
                                                                      required="true" requiredMessage="Imam harus dipilih">

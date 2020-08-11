@@ -3,8 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    
+    <h:head>
+    <script type="text/javascript">
+    function myFunction(){
+        alert("Hello World!");
+        }
+    </script>
+    </h:head>
     <body>
 
         <ui:composition template="./../newTemplate.xhtml">
@@ -480,12 +489,10 @@
                                   <div class="box-body">
                                         <h:form>
                                             <div class="form-group">
-                                                <h5><h:outputLabel value="Tanggal" for="tglJadwal" />(dd/mm/yyyy)<span class="text-danger">*</span></h5>
+                                                <h5><h:outputLabel value="Tanggal" for="tglJadwal" /><span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <h:inputText class="form-control" id="tglJadwal" 
-                                                                 value="#{jadwalController.selected.tglJadwal}" 
-                                                                 title="Tanggal Jadwal" 
-                                                                 required="true" requiredMessage="Tanggal harus diisi">
+                                                    <h:inputText id="tglJadwal" a:min="#{calendarView.dateNow}"  a:onchange="checkDate()" a:id="tglJadwal" a:type="date" class="form-control" value="#{jadwalController.selected.tglJadwal}" required="true" requiredMessage="Tanggal jadwal harus diisi">
+                                                        <!--<f:convertDateTime pattern="dd/MM/yyyy" />-->
                                                     </h:inputText>
                                                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="tglJadwal"/>
                                                 </div>
@@ -493,12 +500,21 @@
                                             <div class="form-group">
                                                 <h5><h:outputLabel value="Waktu Sholat" for="waktuSholat" /><span class="text-danger">*</span></h5>
                                                 <div class="controls">
+<!--                                                    <select class="select2" onkeyup="" multiple="multiple" data-placeholder="Pilih waktu sholat" style="width: 100%; color: #000080" tabindex="-1" aria-hidden="true">
+                                                        <option>Shubuh</option>
+                                                        <option>Dzuhur</option>
+                                                        <option>Ashar</option>
+                                                        <option>Maghrib</option>
+                                                        <option>Isya</option>
+                                                        <option>Semua Waktu</option>
+                                                     </select>-->
                                                     <h:inputText class="form-control" id="waktuSholat" 
                                                                  value="#{jadwalController.selected.waktuSholat}" 
                                                                  title="Waktu Sholat" 
                                                                  required="true" requiredMessage="Waktu Sholat harus diisi">
                                                     </h:inputText>
                                                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table" for="waktuSholat"/>
+                                                    
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -744,68 +760,10 @@
               <!-- jQuery 3 -->
               <script type="text/javascript" src="../resources/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js"></script>
 
-              <!-- popper -->
-<!--              <script type="text/javascript" src="../resources/assets/vendor_components/popper/dist/popper.min.js"></script>
-              
-               date-range-picker 
-            <script type="text/javascript" src="../resources/assets/vendor_components/moment/min/moment.min.js"></script>
-            <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-            
-             ChartJS 
-            <script type="text/javascript" src="../resources/assets/vendor_components/chart.js-master/Chart.min.js"></script>
-
-               Bootstrap 4.0
-              <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-               SlimScroll 
-              <script type="text/javascript" src="../resources/assets/vendor_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-
-               Bootstrap Select 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
-
-                 Bootstrap tagsinput 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
-
-                 Bootstrap touchspin 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-
-                 Select2 
-                <script type="text/javascript" src="../resources/assets/vendor_components/select2/dist/js/select2.full.js"></script>
-
-                 InputMask 
-                <script type="text/javascript" src="../resources/assets/vendor_plugins/input-mask/jquery.inputmask.js"></script>
-                <script type="text/javascript" src="../resources/assets/vendor_plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-                <script type="text/javascript" src="../resources/assets/vendor_plugins/input-mask/jquery.inputmask.extensions.js"></script>
-              
-               bootstrap datepicker 
-                <script type="text/javascript" src="../resources/assets/vendor_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-              
-               FastClick 
-              <script type="text/javascript" src="../resources/assets/vendor_components/fastclick/lib/fastclick.js"></script>
-              
-               Morris.js charts 
-            <script type="text/javascript" src="../resources/assets/vendor_components/raphael/raphael.min.js"></script>
-            <script type="text/javascript" src="../resources/assets/vendor_components/morris.js/morris.min.js"></script>
-
-             This is data table 
-            <script type="text/javascript" src="../resources/assets/vendor_components/datatable/datatables.min.js"></script>
-            <script type="text/javascript" src="../resources/js/pages/data-table.js"></script>
-
-               Superieur Admin App 
-              <script type="text/javascript" src="../resources/js/template.js"></script>
-
-               Superieur Admin for demo purposes 
-              <script type="text/javascript" src="../resources/js/demo.js"></script>
-
-               Form validator JavaScript 
-              <script type="text/javascript" src="../resources/js/pages/validation.js"></script>
-              <script type="text/javascript" src="../resources/js/pages/form-validation.js"></script>
-               Superieur Admin for advanced form element 
-                <script type="text/javascript" src="../resources/js/pages/advanced-form-element.js"></script>-->
             </ui:define>
 
             <ui:define name="content">
-                content
+                content                
             </ui:define>
 
         </ui:composition>
